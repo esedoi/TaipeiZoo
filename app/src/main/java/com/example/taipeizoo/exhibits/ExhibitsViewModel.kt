@@ -1,4 +1,4 @@
-package com.example.taipeizoo.zoo_area
+package com.example.taipeizoo.exhibits
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ZooAreaViewModel @Inject constructor(
+class ExhibitsViewModel @Inject constructor(
     private val zooRepository: ZooRepository
 ) : ViewModel() {
 

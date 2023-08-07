@@ -1,4 +1,4 @@
-package com.example.taipeizoo.zoo_area
+package com.example.taipeizoo.exhibits
 
 import android.os.Bundle
 import android.util.Log
@@ -7,29 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.example.taipeizoo.R
-import com.example.taipeizoo.databinding.FragmentFirstBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.taipeizoo.databinding.FragmentExhibitsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ZooAreaFragment : Fragment() {
+class ExhibitsFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentExhibitsBinding? = null
 
-//    private val viewModel: ZooAreaViewModel by viewModels()
-
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private val viewModel: ExhibitsViewModel by viewModels()
     private val binding get() = _binding!!
+
+    private lateinit var exhibitsAdapter: ExhibitsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentExhibitsBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -41,12 +38,19 @@ class ZooAreaFragment : Fragment() {
 //            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
 //        }
 
-       val viewModel: ZooAreaViewModel by viewModels()
+        setupRecyclerView()
 
         viewModel.data.observe(viewLifecycleOwner) { data ->
             Log.d("des","des___ , ZooAreaFragment, 44, data =$data")
-            // 更新 UI
+
+            exhibitsAdapter.submitList(data)
         }
+    }
+
+    private fun setupRecyclerView() {
+        exhibitsAdapter = ExhibitsAdapter()
+        binding.rvExhibits.layoutManager = LinearLayoutManager(this.context)
+        binding.rvExhibits.adapter = exhibitsAdapter
     }
 
     override fun onDestroyView() {
