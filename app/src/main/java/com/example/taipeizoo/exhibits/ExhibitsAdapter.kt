@@ -11,7 +11,7 @@ import com.example.taipeizoo.databinding.ItemExhibitBinding
 import com.example.taipeizoo.model.Exhibit
 
 
-class ExhibitsAdapter :
+class ExhibitsAdapter(private val exhibitSelected: ExhibitSelected) :
     ListAdapter<Exhibit, RecyclerView.ViewHolder>(
         CourseCallback()
     ) {
@@ -24,14 +24,14 @@ class ExhibitsAdapter :
         val item = getItem(position)
 
         if (holder is ExhibitViewHolder) {
-            holder.bind(item)
+            holder.bind(item, exhibitSelected)
         }
     }
 
     class ExhibitViewHolder(private var binding: ItemExhibitBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Exhibit) {
+        fun bind(item: Exhibit, exhibitSelected: ExhibitSelected) {
 
             setTitle(item)
 
@@ -41,10 +41,14 @@ class ExhibitsAdapter :
 
             setCoverImg(item)
 
+            itemView.setOnClickListener {
+                exhibitSelected.exhibitSelected(item)
+            }
+
         }
 
         private fun setMemoText(item: Exhibit) {
-            binding.tvMemo.text = item.eMemo
+            binding.tvMemo.text = if(item.eMemo.isNullOrEmpty())"無休館資訊" else item.eMemo
         }
 
         private fun setInfoText(item: Exhibit) {
@@ -59,8 +63,8 @@ class ExhibitsAdapter :
         private fun setCoverImg(item: Exhibit) {
             Glide.with(itemView)
                 .load(item.ePicUrl)
+                .override(binding.ivExhibit.width, binding.ivExhibit.height)
                 .into(binding.ivExhibit)
-
         }
 
 
@@ -86,4 +90,8 @@ class CourseCallback : DiffUtil.ItemCallback<Exhibit>() {
     override fun areContentsTheSame(oldItem: Exhibit, newItem: Exhibit): Boolean {
         return oldItem == newItem
     }
+}
+
+interface ExhibitSelected{
+    fun exhibitSelected(item: Exhibit)
 }

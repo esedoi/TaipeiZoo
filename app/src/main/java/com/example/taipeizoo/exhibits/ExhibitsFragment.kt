@@ -1,18 +1,20 @@
 package com.example.taipeizoo.exhibits
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.databinding.FragmentExhibitsBinding
+import com.example.taipeizoo.exhibitsDetail.ExhibitDetailFragmentDirections
+import com.example.taipeizoo.model.Exhibit
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ExhibitsFragment : Fragment() {
+class ExhibitsFragment : Fragment(),  ExhibitSelected {
 
     private var _binding: FragmentExhibitsBinding? = null
 
@@ -34,21 +36,16 @@ class ExhibitsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.buttonFirst.setOnClickListener {
-//            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-//        }
-
         setupRecyclerView()
 
         viewModel.data.observe(viewLifecycleOwner) { data ->
-            Log.d("des","des___ , ZooAreaFragment, 44, data =$data")
 
             exhibitsAdapter.submitList(data)
         }
     }
 
     private fun setupRecyclerView() {
-        exhibitsAdapter = ExhibitsAdapter()
+        exhibitsAdapter = ExhibitsAdapter(this)
         binding.rvExhibits.layoutManager = LinearLayoutManager(this.context)
         binding.rvExhibits.adapter = exhibitsAdapter
     }
@@ -56,5 +53,9 @@ class ExhibitsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun exhibitSelected(item: Exhibit) {
+        findNavController().navigate(ExhibitDetailFragmentDirections.navigateToDetailFragment())
     }
 }
