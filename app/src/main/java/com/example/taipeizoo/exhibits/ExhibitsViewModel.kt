@@ -26,7 +26,7 @@ class ExhibitsViewModel @Inject constructor(
     private fun fetchData() {
         viewModelScope.launch {
             try {
-                val response = zooRepository.getData()
+                val response = zooRepository.getExhibits()
                 if (response.isSuccessful) {
                     _data.value = response.body()?.result?.results
                 }

@@ -1,22 +1,34 @@
 package com.example.taipeizoo.exhibitsDetail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.R
 import com.example.taipeizoo.databinding.FragmentSecondBinding
+import com.example.taipeizoo.exhibits.ExhibitsAdapter
+import com.example.taipeizoo.exhibits.ExhibitsViewModel
+import com.example.taipeizoo.model.Animal
+import com.example.taipeizoo.model.Exhibit
+import com.example.taipeizoo.model.ExhibitDetailItem
+import com.google.android.material.dialog.InsetDialogOnTouchListener
+import dagger.hilt.android.AndroidEntryPoint
 
-
-class ExhibitDetailFragment : Fragment() {
+@AndroidEntryPoint
+class ExhibitDetailFragment : Fragment(), AnimalSelected {
 
     private var _binding: FragmentSecondBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val viewModel: ExhibitDetailViewModel by viewModels()
+
+    private lateinit var exhibitDetailAdapter: ExhibitDetailAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,13 +43,42 @@ class ExhibitDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        binding.buttonSecond.setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
+
+        setupRecyclerView()
+
+        setupLiveData()
+
+    }
+
+    private fun setupLiveData() {
+        viewModel.data.observe(viewLifecycleOwner) { data ->
+            val args: ExhibitDetailFragmentArgs by navArgs()
+            val receivedData: Exhibit = args.exhibit
+
+            val combinedList: List<ExhibitDetailItem> =
+                listOf(ExhibitDetailItem.ExhibitDetail(receivedData)) + data.map {
+                    ExhibitDetailItem.AnimalItem(it)
+                }
+
+            exhibitDetailAdapter.submitList(combinedList)
         }
+    }
+
+    private fun setupRecyclerView() {
+        exhibitDetailAdapter = ExhibitDetailAdapter(this)
+        binding.rvExhibitDetail.layoutManager = LinearLayoutManager(this.context)
+        binding.rvExhibitDetail.adapter = exhibitDetailAdapter
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun animalSelected(item: Animal) {
+        TODO("Not yet implemented")
     }
 }

@@ -17,9 +17,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class ExhibitsFragment : Fragment(),  ExhibitSelected {
 
     private var _binding: FragmentExhibitsBinding? = null
+    private val binding get() = _binding!!
 
     private val viewModel: ExhibitsViewModel by viewModels()
-    private val binding get() = _binding!!
 
     private lateinit var exhibitsAdapter: ExhibitsAdapter
 
@@ -38,6 +38,10 @@ class ExhibitsFragment : Fragment(),  ExhibitSelected {
 
         setupRecyclerView()
 
+        setupLiveData()
+    }
+
+    private fun setupLiveData() {
         viewModel.data.observe(viewLifecycleOwner) { data ->
 
             exhibitsAdapter.submitList(data)
@@ -56,6 +60,6 @@ class ExhibitsFragment : Fragment(),  ExhibitSelected {
     }
 
     override fun exhibitSelected(item: Exhibit) {
-        findNavController().navigate(ExhibitDetailFragmentDirections.navigateToDetailFragment())
+        findNavController().navigate(ExhibitDetailFragmentDirections.navigateToDetailFragment(item))
     }
 }

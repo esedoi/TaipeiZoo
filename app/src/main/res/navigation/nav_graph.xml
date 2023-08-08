@@ -11,22 +11,21 @@
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_exhibits">
 
-<!--        <action-->
-<!--            android:id="@+id/action_FirstFragment_to_SecondFragment"-->
-<!--            app:destination="@id/SecondFragment" />-->
     </fragment>
 
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/ExhibitDetailFragment"
         android:name="com.example.taipeizoo.exhibitsDetail.ExhibitDetailFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
+        <argument
+            android:name="exhibit"
+            app:argType="com.example.taipeizoo.model.Exhibit"
+            app:nullable="false"/>
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/ExhibitsFragment" />
     </fragment>
 
 
-    <action android:id="@+id/navigate_to_detail_fragment" app:destination="@id/SecondFragment"/>
+
+    <action android:id="@+id/navigate_to_detail_fragment" app:destination="@id/ExhibitDetailFragment"/>
 </navigation>
