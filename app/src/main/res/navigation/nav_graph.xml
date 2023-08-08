@@ -25,7 +25,20 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/AnimalDetailFragment"
+        android:name="com.example.taipeizoo.animalDetail.AnimalFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_animal">
+        <argument
+            android:name="animal"
+            app:argType="com.example.taipeizoo.model.Animal"
+            app:nullable="false"/>
+
+    </fragment>
+
 
 
     <action android:id="@+id/navigate_to_detail_fragment" app:destination="@id/ExhibitDetailFragment"/>
+    <action android:id="@+id/navigate_to_animal_detail_fragment" app:destination="@id/AnimalDetailFragment"/>
 </navigation>

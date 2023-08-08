@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.R
+import com.example.taipeizoo.animalDetail.AnimalFragmentDirections
 import com.example.taipeizoo.databinding.FragmentSecondBinding
 import com.example.taipeizoo.exhibits.ExhibitsAdapter
 import com.example.taipeizoo.exhibits.ExhibitsViewModel
@@ -42,10 +43,6 @@ class ExhibitDetailFragment : Fragment(), AnimalSelected {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        binding.buttonSecond.setOnClickListener {
-//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-//        }
 
         setupRecyclerView()
 
@@ -79,6 +76,6 @@ class ExhibitDetailFragment : Fragment(), AnimalSelected {
     }
 
     override fun animalSelected(item: Animal) {
-        TODO("Not yet implemented")
+        findNavController().navigate(AnimalFragmentDirections.navigateToAnimalDetailFragment(item))
     }
 }
