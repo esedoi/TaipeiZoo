@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.taipeizoo.R
 import com.example.taipeizoo.databinding.ItemExhibitBinding
 import com.example.taipeizoo.data.Exhibit
 
@@ -48,7 +49,8 @@ class ExhibitsAdapter(private val exhibitSelected: ExhibitSelected) :
         }
 
         private fun setMemoText(item: Exhibit) {
-            binding.tvMemo.text = item.eMemo?.ifEmpty { "無休館資訊" }
+            binding.tvMemo.text =
+                item.eMemo?.ifEmpty { itemView.context.getString(R.string.no_closing_info) }
         }
 
         private fun setInfoText(item: Exhibit) {

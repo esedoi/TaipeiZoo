@@ -132,4 +132,10 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="behavior">行爲</string>
+    <string name="feature">特色</string>
+    <string name="diet">飲食</string>
+    <string name="distribution">分佈地區</string>
+    <string name="alsoKnown">別名</string>
+    <string name="no_closing_info">無休館資訊</string>
 </resources>
