@@ -11,27 +11,33 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ExhibitDetailViewModel  @Inject constructor(
+class ExhibitDetailViewModel @Inject constructor(
     private val zooRepository: ZooRepository
 ) : ViewModel() {
 
     private val _data = MutableLiveData<List<Animal>>()
     val data: LiveData<List<Animal>> = _data
 
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean> = _isLoading
+
     init {
 
         fetchData()
     }
 
-    private fun fetchData () {
+    private fun fetchData() {
         viewModelScope.launch {
             try {
+                _isLoading.value = true
                 val response = zooRepository.getAnimals()
                 if (response.isSuccessful) {
                     _data.value = response.body()?.result?.results
                 }
-            }catch (e:Error){
+            } catch (e: Error) {
 
+            } finally {
+                _isLoading.value = false
             }
 
 

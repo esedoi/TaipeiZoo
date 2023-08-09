@@ -33,9 +33,19 @@ class AnimalFragment : Fragment() {
         val args: AnimalFragmentArgs by navArgs()
         val receivedData: Animal = args.animal
 
+        binding.tvChName.text = receivedData.nameCh
+
+        binding.tvEnName.text = receivedData.nameEn
+
+        binding.tvAlsoKnown.text = receivedData.alsoKnown
+
+        binding.tvDiet.text = receivedData.diet
+
         binding.tvDistribution.text = receivedData.distribution
+
         binding.tvFeature.text = receivedData.feature
-        binding.tvHabit.text = receivedData.habitat
+
+        binding.tvBehavior.text = receivedData.behavior
 
         Glide.with(this)
             .load(receivedData.pic01Url)

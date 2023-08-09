@@ -18,6 +18,9 @@ class ExhibitsViewModel @Inject constructor(
     private val _data = MutableLiveData<List<Exhibit>>()
     val data: LiveData<List<Exhibit>> = _data
 
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean> = _isLoading
+
     init {
 
         fetchData()
@@ -26,15 +29,16 @@ class ExhibitsViewModel @Inject constructor(
     private fun fetchData() {
         viewModelScope.launch {
             try {
+                _isLoading.value = true
                 val response = zooRepository.getExhibits()
                 if (response.isSuccessful) {
                     _data.value = response.body()?.result?.results
                 }
             }catch (e:Error){
 
+            } finally {
+                _isLoading.value = false
             }
-
-
         }
     }
 }

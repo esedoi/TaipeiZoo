@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.databinding.FragmentExhibitsBinding
 import com.example.taipeizoo.exhibitsDetail.ExhibitDetailFragmentDirections
@@ -14,7 +15,7 @@ import com.example.taipeizoo.model.Exhibit
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ExhibitsFragment : Fragment(),  ExhibitSelected {
+class ExhibitsFragment : Fragment(), ExhibitSelected {
 
     private var _binding: FragmentExhibitsBinding? = null
     private val binding get() = _binding!!
@@ -46,12 +47,25 @@ class ExhibitsFragment : Fragment(),  ExhibitSelected {
 
             exhibitsAdapter.submitList(data)
         }
+
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+
+            if (isLoading) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.GONE
+            }
+        }
+
     }
 
     private fun setupRecyclerView() {
         exhibitsAdapter = ExhibitsAdapter(this)
         binding.rvExhibits.layoutManager = LinearLayoutManager(this.context)
         binding.rvExhibits.adapter = exhibitsAdapter
+
+        val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+        binding.rvExhibits.addItemDecoration(dividerItemDecoration)
     }
 
     override fun onDestroyView() {
@@ -60,6 +74,10 @@ class ExhibitsFragment : Fragment(),  ExhibitSelected {
     }
 
     override fun exhibitSelected(item: Exhibit) {
-        findNavController().navigate(ExhibitDetailFragmentDirections.navigateToDetailFragment(item))
+        findNavController().navigate(
+            ExhibitDetailFragmentDirections.navigateToExhibitDetailFragment(
+                item
+            )
+        )
     }
 }

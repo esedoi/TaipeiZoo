@@ -21,24 +21,27 @@
         <argument
             android:name="exhibit"
             app:argType="com.example.taipeizoo.model.Exhibit"
-            app:nullable="false"/>
+            app:nullable="false" />
 
     </fragment>
 
     <fragment
         android:id="@+id/AnimalDetailFragment"
         android:name="com.example.taipeizoo.animalDetail.AnimalFragment"
-        android:label="@string/second_fragment_label"
+        android:label="動物"
         tools:layout="@layout/fragment_animal">
         <argument
             android:name="animal"
             app:argType="com.example.taipeizoo.model.Animal"
-            app:nullable="false"/>
+            app:nullable="false" />
 
     </fragment>
 
 
-
-    <action android:id="@+id/navigate_to_detail_fragment" app:destination="@id/ExhibitDetailFragment"/>
-    <action android:id="@+id/navigate_to_animal_detail_fragment" app:destination="@id/AnimalDetailFragment"/>
+    <action
+        android:id="@+id/navigate_to_Exhibit_detail_fragment"
+        app:destination="@id/ExhibitDetailFragment" />
+    <action
+        android:id="@+id/navigate_to_animal_detail_fragment"
+        app:destination="@id/AnimalDetailFragment" />
 </navigation>

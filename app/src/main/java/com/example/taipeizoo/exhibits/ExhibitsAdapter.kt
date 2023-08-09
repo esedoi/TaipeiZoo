@@ -48,7 +48,7 @@ class ExhibitsAdapter(private val exhibitSelected: ExhibitSelected) :
         }
 
         private fun setMemoText(item: Exhibit) {
-            binding.tvMemo.text = if(item.eMemo.isNullOrEmpty())"無休館資訊" else item.eMemo
+            binding.tvMemo.text = item.eMemo.ifEmpty { "無休館資訊" }
         }
 
         private fun setInfoText(item: Exhibit) {
@@ -70,13 +70,13 @@ class ExhibitsAdapter(private val exhibitSelected: ExhibitSelected) :
 
         companion object {
             fun from(parent: ViewGroup): ExhibitViewHolder {
-                val order =
+                val view =
                     ItemExhibitBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
                     )
-                return ExhibitViewHolder(order)
+                return ExhibitViewHolder(view)
             }
         }
     }

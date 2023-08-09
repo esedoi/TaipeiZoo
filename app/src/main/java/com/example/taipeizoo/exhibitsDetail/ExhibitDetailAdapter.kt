@@ -71,13 +71,13 @@ class ExhibitDetailAdapter(private val animalSelected: AnimalSelected) :
 
         companion object {
             fun from(parent: ViewGroup): ExhibitDetailViewHolder {
-                val order =
+                val view =
                     ItemExhibitDetailBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
                     )
-                return ExhibitDetailViewHolder(order)
+                return ExhibitDetailViewHolder(view)
             }
         }
     }
@@ -89,15 +89,26 @@ class ExhibitDetailAdapter(private val animalSelected: AnimalSelected) :
         fun bind(item: ExhibitDetailItem.AnimalItem, animalSelected: AnimalSelected) {
 
             setImg(item)
-            setText(item)
-
-            itemView.setOnClickListener {
-                animalSelected.animalSelected(item.animal)
-            }
+            setTitle(item)
+            setInfo(item)
+            setClickListener(item, animalSelected)
 
         }
 
-        private fun setText(item: ExhibitDetailItem.AnimalItem) {
+        private fun setClickListener(
+            item: ExhibitDetailItem.AnimalItem,
+            animalSelected: AnimalSelected
+        ) {
+            itemView.setOnClickListener {
+                animalSelected.animalSelected(item.animal)
+            }
+        }
+
+        private fun setInfo(item: ExhibitDetailItem.AnimalItem) {
+            binding.tvInfo.text = item.animal.feature
+        }
+
+        private fun setTitle(item: ExhibitDetailItem.AnimalItem) {
             binding.tvName.text = item.animal.nameCh
 
         }
@@ -111,13 +122,13 @@ class ExhibitDetailAdapter(private val animalSelected: AnimalSelected) :
 
         companion object {
             fun from(parent: ViewGroup): AnimalViewHolder {
-                val order =
+                val view =
                     ItemAnimalBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
                     )
-                return AnimalViewHolder(order)
+                return AnimalViewHolder(view)
             }
         }
     }

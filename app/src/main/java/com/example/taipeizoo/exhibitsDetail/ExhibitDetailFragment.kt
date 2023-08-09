@@ -62,6 +62,15 @@ class ExhibitDetailFragment : Fragment(), AnimalSelected {
 
             exhibitDetailAdapter.submitList(combinedList)
         }
+
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+
+            if (isLoading) {
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.progressBar.visibility = View.GONE
+            }
+        }
     }
 
     private fun setupRecyclerView() {
@@ -76,6 +85,7 @@ class ExhibitDetailFragment : Fragment(), AnimalSelected {
     }
 
     override fun animalSelected(item: Animal) {
+        Log.d("des___","des___, ExhibitDetailFragment, 79, item = $item")
         findNavController().navigate(AnimalFragmentDirections.navigateToAnimalDetailFragment(item))
     }
 }
