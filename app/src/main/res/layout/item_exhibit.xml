@@ -5,19 +5,23 @@
     android:layout_height="wrap_content"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/iv_exhibit"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_exhibit_img"
         android:layout_width="132dp"
         android:layout_height="99dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:cardCornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_exhibit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tv_name"
@@ -26,7 +30,7 @@
         android:layout_marginStart="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_exhibit"
+        app:layout_constraintStart_toEndOf="@+id/cv_exhibit_img"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -38,7 +42,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_exhibit"
+        app:layout_constraintStart_toEndOf="@+id/cv_exhibit_img"
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <TextView
@@ -49,7 +53,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_exhibit"
+        app:layout_constraintStart_toEndOf="@+id/cv_exhibit_img"
         app:layout_constraintTop_toBottomOf="@+id/tv_info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
