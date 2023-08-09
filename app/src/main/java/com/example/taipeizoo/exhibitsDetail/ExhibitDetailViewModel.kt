@@ -23,10 +23,10 @@ class ExhibitDetailViewModel @Inject constructor(
 
     init {
 
-        fetchData()
+        getAnimals()
     }
 
-    private fun fetchData() {
+    private fun getAnimals() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
@@ -39,7 +39,6 @@ class ExhibitDetailViewModel @Inject constructor(
             } finally {
                 _isLoading.value = false
             }
-
 
         }
     }

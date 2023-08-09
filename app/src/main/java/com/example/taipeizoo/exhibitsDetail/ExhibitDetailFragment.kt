@@ -27,7 +27,7 @@ class ExhibitDetailFragment : Fragment(), AnimalSelected {
 
     private lateinit var exhibitDetailAdapter: ExhibitDetailAdapter
 
-    val args: ExhibitDetailFragmentArgs by navArgs()
+    private val args: ExhibitDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

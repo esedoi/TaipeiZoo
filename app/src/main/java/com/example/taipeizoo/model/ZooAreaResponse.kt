@@ -2,7 +2,7 @@ package com.example.taipeizoo.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 
 data class ZooAreaResponse(
@@ -30,11 +30,11 @@ data class Exhibit(
     @SerializedName("e_memo") val eMemo: String,
     @SerializedName("e_geo") val eGeo: String,
     @SerializedName("e_url") val eUrl: String
-):Parcelable
+) : Parcelable
 
 @Parcelize
 data class ImportDate(
     @SerializedName("date") val date: String,
     @SerializedName("timezone_type") val timezoneType: Int,
     @SerializedName("timezone") val timezone: String
-):Parcelable
+) : Parcelable

@@ -1,11 +1,9 @@
 package com.example.taipeizoo.model
 
 
-
-
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 
 data class AnimalResponse(
@@ -70,4 +68,4 @@ data class Animal(
     @SerializedName("a_vedio_url") val videoUrl: String,
     @SerializedName("a_update") val update: String,
     @SerializedName("a_cid") val cid: String
-): Parcelable
+) : Parcelable

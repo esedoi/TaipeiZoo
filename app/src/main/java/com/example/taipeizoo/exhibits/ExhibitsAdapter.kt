@@ -92,6 +92,6 @@ class CourseCallback : DiffUtil.ItemCallback<Exhibit>() {
     }
 }
 
-interface ExhibitSelected{
+interface ExhibitSelected {
     fun exhibitSelected(item: Exhibit)
 }

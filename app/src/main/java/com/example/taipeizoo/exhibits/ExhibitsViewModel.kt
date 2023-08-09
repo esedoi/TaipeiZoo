@@ -23,10 +23,10 @@ class ExhibitsViewModel @Inject constructor(
 
     init {
 
-        fetchData()
+        getExhibits()
     }
 
-    private fun fetchData() {
+    private fun getExhibits() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
@@ -34,7 +34,7 @@ class ExhibitsViewModel @Inject constructor(
                 if (response.isSuccessful) {
                     _data.value = response.body()?.result?.results
                 }
-            }catch (e:Error){
+            } catch (e: Error) {
 
             } finally {
                 _isLoading.value = false
