@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun setTitle(title:String){
+        supportActionBar?.title = title
+
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         menuInflater.inflate(R.menu.menu_main, menu)
