@@ -1,5 +1,6 @@
 package com.example.taipeizoo.exhibits
 
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,6 +10,7 @@ import com.example.taipeizoo.model.Exhibit
 import com.example.taipeizoo.repository.ZooRepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,8 +41,12 @@ class ExhibitsViewModel @Inject constructor(
                     }
                 }
 
+            } catch (e: IOException) {
 
-            } catch (e: Error) {
+                val response = zooRepository.getExhibitsFromJson()
+                if (response.isSuccessful) {
+                    _data.value = response.body()?.result?.results
+                }
 
             } finally {
                 _isLoading.value = false

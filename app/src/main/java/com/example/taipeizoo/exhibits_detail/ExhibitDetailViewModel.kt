@@ -1,5 +1,6 @@
 package com.example.taipeizoo.exhibits_detail
 
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -41,8 +42,12 @@ class ExhibitDetailViewModel @Inject constructor(
                 }
 
 
-            } catch (e: Error) {
+            } catch (e: Exception) {
 
+                val response = zooRepository.getAnimalsFromJson()
+                if (response.isSuccessful) {
+                    _data.value = response.body()?.result?.results
+                }
             } finally {
                 _isLoading.value = false
             }

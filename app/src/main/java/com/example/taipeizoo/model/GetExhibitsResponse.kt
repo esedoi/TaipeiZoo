@@ -21,15 +21,15 @@ data class Result(
 @Parcelize
 data class Exhibit(
     @SerializedName("_id") val id: Int,
-    @SerializedName("_importdate") val importDate: ImportDate,
-    @SerializedName("e_no") val eNo: String,
-    @SerializedName("e_category") val eCategory: String,
-    @SerializedName("e_name") val eName: String,
-    @SerializedName("e_pic_url") val ePicUrl: String,
-    @SerializedName("e_info") val eInfo: String,
-    @SerializedName("e_memo") val eMemo: String,
-    @SerializedName("e_geo") val eGeo: String,
-    @SerializedName("e_url") val eUrl: String
+    @SerializedName("_importdate") val importDate: ImportDate?,
+    @SerializedName(value = "e_no", alternate = ["E_no"]) val eNo: String,
+    @SerializedName(value = "e_category", alternate = ["E_Category"]) val eCategory: String,
+    @SerializedName(value = "e_name", alternate = ["E_Name"]) val eName: String,
+    @SerializedName(value = "e_pic_url", alternate = ["E_Pic_URL"]) val ePicUrl: String,
+    @SerializedName(value = "e_info", alternate = ["E_Info"]) val eInfo: String,
+    @SerializedName(value = "e_memo", alternate = ["E_Memo"]) val eMemo: String,
+    @SerializedName(value = "e_geo", alternate = ["E_Geo"]) val eGeo: String,
+    @SerializedName(value = "e_url", alternate = ["E_URL"]) val eUrl: String
 ) : Parcelable
 
 @Parcelize

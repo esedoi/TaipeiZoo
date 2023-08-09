@@ -48,7 +48,7 @@ class ExhibitsAdapter(private val exhibitSelected: ExhibitSelected) :
         }
 
         private fun setMemoText(item: Exhibit) {
-            binding.tvMemo.text = item.eMemo.ifEmpty { "無休館資訊" }
+            binding.tvMemo.text = item.eMemo?.ifEmpty { "無休館資訊" }
         }
 
         private fun setInfoText(item: Exhibit) {
