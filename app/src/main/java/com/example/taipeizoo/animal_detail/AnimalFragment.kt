@@ -9,7 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.taipeizoo.MainActivity
 import com.example.taipeizoo.databinding.FragmentAnimalBinding
-import com.example.taipeizoo.model.Animal
+import com.example.taipeizoo.data.Animal
 
 class AnimalFragment : Fragment() {
 

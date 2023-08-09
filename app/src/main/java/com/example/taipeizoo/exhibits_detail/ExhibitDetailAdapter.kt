@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.taipeizoo.databinding.ItemAnimalBinding
 import com.example.taipeizoo.databinding.ItemExhibitDetailBinding
-import com.example.taipeizoo.model.Animal
-import com.example.taipeizoo.model.ExhibitDetailItem
+import com.example.taipeizoo.data.Animal
+import com.example.taipeizoo.data.ExhibitDetailItem
 
 class ExhibitDetailAdapter(private val animalSelected: AnimalSelected) :
     ListAdapter<ExhibitDetailItem, RecyclerView.ViewHolder>(

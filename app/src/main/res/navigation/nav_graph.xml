@@ -20,7 +20,7 @@
         tools:layout="@layout/fragment_second">
         <argument
             android:name="exhibit"
-            app:argType="com.example.taipeizoo.model.Exhibit"
+            app:argType="com.example.taipeizoo.data.Exhibit"
             app:nullable="false" />
 
     </fragment>
@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_animal">
         <argument
             android:name="animal"
-            app:argType="com.example.taipeizoo.model.Animal"
+            app:argType="com.example.taipeizoo.data.Animal"
             app:nullable="false" />
 
     </fragment>

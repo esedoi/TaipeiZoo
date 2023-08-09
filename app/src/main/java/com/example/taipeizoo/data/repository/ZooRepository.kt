@@ -1,9 +1,9 @@
-package com.example.taipeizoo.repository
+package com.example.taipeizoo.data.repository
 
-import com.example.taipeizoo.local.ZooDataSource
-import com.example.taipeizoo.model.GetAnimalsResponse
-import com.example.taipeizoo.model.GetExhibitsResponse
-import com.example.taipeizoo.network.ApiService
+import com.example.taipeizoo.data.local.ZooDataSource
+import com.example.taipeizoo.data.GetAnimalsResponse
+import com.example.taipeizoo.data.GetExhibitsResponse
+import com.example.taipeizoo.data.network.ApiService
 import retrofit2.Response
 import javax.inject.Inject
 

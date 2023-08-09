@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.MainActivity
 import com.example.taipeizoo.animal_detail.AnimalFragmentDirections
 import com.example.taipeizoo.databinding.FragmentSecondBinding
-import com.example.taipeizoo.model.Animal
-import com.example.taipeizoo.model.Exhibit
-import com.example.taipeizoo.model.ExhibitDetailItem
+import com.example.taipeizoo.data.Animal
+import com.example.taipeizoo.data.Exhibit
+import com.example.taipeizoo.data.ExhibitDetailItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

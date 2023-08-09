@@ -1,9 +1,9 @@
 package com.example.taipeizoo.exhibit_detail
 
 import com.example.taipeizoo.exhibits_detail.ExhibitDetailViewModel
-import com.example.taipeizoo.model.GetAnimalsResponse
-import com.example.taipeizoo.model.GetExhibitsResponse
-import com.example.taipeizoo.repository.ZooRepositoryInterface
+import com.example.taipeizoo.data.GetAnimalsResponse
+import com.example.taipeizoo.data.GetExhibitsResponse
+import com.example.taipeizoo.data.repository.ZooRepositoryInterface
 import com.google.gson.Gson
 import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi

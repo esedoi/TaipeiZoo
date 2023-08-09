@@ -1,7 +1,7 @@
 package com.example.taipeizoo.exhibits
 
-import com.example.taipeizoo.model.GetExhibitsResponse
-import com.example.taipeizoo.repository.ZooRepositoryInterface
+import com.example.taipeizoo.data.GetExhibitsResponse
+import com.example.taipeizoo.data.repository.ZooRepositoryInterface
 import com.google.gson.Gson
 import junit.framework.TestCase.assertNotNull
 import junit.framework.TestCase.assertNull

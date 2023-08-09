@@ -1,10 +1,11 @@
-package com.example.taipeizoo.network
+package com.example.taipeizoo.di
 
 import android.content.Context
-import com.example.taipeizoo.local.LocalDataSource
-import com.example.taipeizoo.local.ZooDataSource
-import com.example.taipeizoo.repository.ZooRepository
-import com.example.taipeizoo.repository.ZooRepositoryInterface
+import com.example.taipeizoo.data.local.LocalDataSource
+import com.example.taipeizoo.data.local.ZooDataSource
+import com.example.taipeizoo.data.network.ApiService
+import com.example.taipeizoo.data.repository.ZooRepository
+import com.example.taipeizoo.data.repository.ZooRepositoryInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

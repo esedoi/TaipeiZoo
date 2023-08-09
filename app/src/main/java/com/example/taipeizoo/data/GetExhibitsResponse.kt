@@ -1,4 +1,4 @@
-package com.example.taipeizoo.model
+package com.example.taipeizoo.data
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

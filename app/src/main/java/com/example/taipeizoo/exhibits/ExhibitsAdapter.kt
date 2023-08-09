@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.taipeizoo.databinding.ItemExhibitBinding
-import com.example.taipeizoo.model.Exhibit
+import com.example.taipeizoo.data.Exhibit
 
 
 class ExhibitsAdapter(private val exhibitSelected: ExhibitSelected) :

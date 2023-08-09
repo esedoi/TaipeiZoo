@@ -1,7 +1,7 @@
-package com.example.taipeizoo.repository
+package com.example.taipeizoo.data.repository
 
-import com.example.taipeizoo.model.GetAnimalsResponse
-import com.example.taipeizoo.model.GetExhibitsResponse
+import com.example.taipeizoo.data.GetAnimalsResponse
+import com.example.taipeizoo.data.GetExhibitsResponse
 import retrofit2.Response
 
 interface ZooRepositoryInterface {

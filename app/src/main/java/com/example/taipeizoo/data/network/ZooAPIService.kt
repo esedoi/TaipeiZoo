@@ -1,8 +1,8 @@
-package com.example.taipeizoo.network
+package com.example.taipeizoo.data.network
 
 
-import com.example.taipeizoo.model.GetAnimalsResponse
-import com.example.taipeizoo.model.GetExhibitsResponse
+import com.example.taipeizoo.data.GetAnimalsResponse
+import com.example.taipeizoo.data.GetExhibitsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

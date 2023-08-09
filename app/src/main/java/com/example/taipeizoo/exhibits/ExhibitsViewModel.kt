@@ -1,13 +1,12 @@
 package com.example.taipeizoo.exhibits
 
-import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.taipeizoo.model.Exhibit
-import com.example.taipeizoo.repository.ZooRepositoryInterface
+import com.example.taipeizoo.data.Exhibit
+import com.example.taipeizoo.data.repository.ZooRepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.io.IOException
