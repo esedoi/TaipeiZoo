@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun setTitle(title: String) {
+    fun setBarTitle(title: String) {
         supportActionBar?.title = title
 
     }

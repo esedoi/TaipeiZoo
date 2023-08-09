@@ -54,6 +54,6 @@ class AnimalFragment : Fragment() {
 
     private fun seBarTitle(receivedData: Animal) {
 
-        (activity as MainActivity).setTitle(receivedData.nameCh)
+        receivedData.nameCh?.let { (activity as MainActivity).setBarTitle(it) }
     }
 }

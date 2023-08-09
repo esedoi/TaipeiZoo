@@ -53,7 +53,7 @@ class ExhibitDetailFragment : Fragment(), AnimalSelected {
     private fun setBarTitle() {
         val receivedData: Exhibit = args.exhibit
 
-        (activity as MainActivity).setTitle(receivedData.eName)
+        receivedData.eName?.let { (activity as MainActivity).setBarTitle(it) }
 
     }
 
