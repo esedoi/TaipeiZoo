@@ -1,4 +1,4 @@
-package com.example.taipeizoo.exhibitsDetail
+package com.example.taipeizoo.exhibits_detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.MainActivity
-import com.example.taipeizoo.animalDetail.AnimalFragmentDirections
+import com.example.taipeizoo.animal_detail.AnimalFragmentDirections
 import com.example.taipeizoo.databinding.FragmentSecondBinding
 import com.example.taipeizoo.model.Animal
 import com.example.taipeizoo.model.Exhibit

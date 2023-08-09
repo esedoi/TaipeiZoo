@@ -1,4 +1,4 @@
-package com.example.taipeizoo.exhibitsDetail
+package com.example.taipeizoo.exhibits_detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

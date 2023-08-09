@@ -1,6 +1,7 @@
 package com.example.taipeizoo.network
 
-import com.example.taipeizoo.model.ZooRepository
+import com.example.taipeizoo.repository.ZooRepository
+import com.example.taipeizoo.repository.ZooRepositoryInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object ZooNetworkModule {
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
@@ -25,5 +26,5 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideDataRepository(apiService: ApiService): ZooRepository = ZooRepository(apiService)
+    fun provideDataRepository(apiService: ApiService): ZooRepositoryInterface = ZooRepository(apiService)
 }

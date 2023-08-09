@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.taipeizoo.databinding.FragmentExhibitsBinding
-import com.example.taipeizoo.exhibitsDetail.ExhibitDetailFragmentDirections
+import com.example.taipeizoo.exhibits_detail.ExhibitDetailFragmentDirections
 import com.example.taipeizoo.model.Exhibit
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,4 +1,4 @@
-package com.example.taipeizoo.animalDetail
+package com.example.taipeizoo.animal_detail
 
 import android.os.Bundle
 import android.view.LayoutInflater

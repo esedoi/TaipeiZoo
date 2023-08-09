@@ -1,18 +1,19 @@
-package com.example.taipeizoo.exhibitsDetail
+package com.example.taipeizoo.exhibits_detail
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.taipeizoo.model.Animal
-import com.example.taipeizoo.model.ZooRepository
+import com.example.taipeizoo.repository.ZooRepositoryInterface
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ExhibitDetailViewModel @Inject constructor(
-    private val zooRepository: ZooRepository
+    private val zooRepository: ZooRepositoryInterface
 ) : ViewModel() {
 
     private val _data = MutableLiveData<List<Animal>>()
@@ -26,14 +27,20 @@ class ExhibitDetailViewModel @Inject constructor(
         getAnimals()
     }
 
-    private fun getAnimals() {
+    @VisibleForTesting
+    internal fun getAnimals() {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
                 val response = zooRepository.getAnimals()
-                if (response.isSuccessful) {
-                    _data.value = response.body()?.result?.results
+
+                if(response != null){
+                    if (response.isSuccessful) {
+                        _data.value = response.body()?.result?.results
+                    }
                 }
+
+
             } catch (e: Error) {
 
             } finally {

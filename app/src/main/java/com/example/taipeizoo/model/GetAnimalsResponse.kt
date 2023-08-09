@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 
-data class AnimalResponse(
+data class GetAnimalsResponse(
     val result: AnimalResult
 )
 

@@ -15,7 +15,7 @@
 
     <fragment
         android:id="@+id/ExhibitDetailFragment"
-        android:name="com.example.taipeizoo.exhibitsDetail.ExhibitDetailFragment"
+        android:name="com.example.taipeizoo.exhibits_detail.ExhibitDetailFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
         <argument
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/AnimalDetailFragment"
-        android:name="com.example.taipeizoo.animalDetail.AnimalFragment"
+        android:name="com.example.taipeizoo.animal_detail.AnimalFragment"
         android:label="動物"
         tools:layout="@layout/fragment_animal">
         <argument
